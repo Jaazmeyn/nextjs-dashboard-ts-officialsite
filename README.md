@@ -10,3 +10,14 @@ https://nextjs.org/learn/dashboard-app/getting-started
 
 bug: delete node modules and jsonlockfile and npm cache clean --force
 then npm install
+npm run dev  
+
+## styling
+https://nextjs.org/learn/dashboard-app/css-styling
+Tailwind and CSS modules
+
+add a global CSS:
+
+again for tailwind inline declerations the extention tailwind css intellicence
+
+CSS Modules allow you to scope CSS
