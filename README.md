@@ -21,3 +21,17 @@ add a global CSS:
 again for tailwind inline declerations the extention tailwind css intellicence
 
 CSS Modules allow you to scope CSS
+
+
+### Using the clsx library to toggle class names
+https://nextjs.org/learn/dashboard-app/css-styling#using-the-clsx-library-to-toggle-class-names
+
+You can use clsx to conditionally apply toggle if clicked different color.
+aditionally style with Sass what allows to import scss or css
+or
+CSS-in-JS libraries such as styled-jsx, styled-components, and emotion
+
+### Optimizing Fonts and Images
+https://nextjs.org/learn/dashboard-app/optimizing-fonts-images
+against fonts, layout shift:
+
