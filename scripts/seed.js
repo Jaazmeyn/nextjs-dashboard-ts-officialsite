@@ -1,3 +1,5 @@
+// SQL Tables Postgres database
+
 const { db } = require('@vercel/postgres');
 const {
   invoices,

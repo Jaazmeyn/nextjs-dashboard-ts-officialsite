@@ -35,3 +35,17 @@ CSS-in-JS libraries such as styled-jsx, styled-components, and emotion
 https://nextjs.org/learn/dashboard-app/optimizing-fonts-images
 against fonts, layout shift:
 
+### Create a Postgres database
+on vercel after deploying the project
+copy the secret key in the .env 
+
+install the Vercel Postgres SDK
+``
+npm i @vercel/postgres
+``
+
+seed database:
+ 'seeding' in the context of databases is to Populate the database with an initial set of data
+ https://nextjs.org/learn/dashboard-app/setting-up-your-database
+
+ 
