@@ -62,3 +62,9 @@ Database queries
  in next.js Fetching data with React Server Components
 
  SQL allows to Fetch and manipulate specific data
+
+
+
+
+fix request waterfall: initiate data requests at the same time
+in js: Promise.all() or Promise.allSettled()
