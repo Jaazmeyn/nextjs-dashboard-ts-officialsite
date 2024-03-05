@@ -48,4 +48,17 @@ seed database:
  'seeding' in the context of databases is to Populate the database with an initial set of data
  https://nextjs.org/learn/dashboard-app/setting-up-your-database
 
- 
+
+
+ In Next.js, you can create API endpoints using Route Handlers.
+ When you're creating a full-stack application, you'll also need to write logic to interact with your database. Access relational database (Postgres) with SQL, or an ORM(bridge between db and object-oriented program) like Prisma
+
+ Eine relationale Datenbank ist eine Sammlung von Datenelementen mit vordefinierten Beziehungen
+
+Arten 
+Api layer
+Database queries
+
+ in next.js Fetching data with React Server Components
+
+ SQL allows to Fetch and manipulate specific data

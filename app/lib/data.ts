@@ -1,4 +1,5 @@
-import { sql } from '@vercel/postgres';
+import { sql } from '@vercel/postgres'; // importing sql function
+
 import {
   CustomerField,
   CustomersTableType,
