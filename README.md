@@ -68,3 +68,7 @@ Database queries
 
 fix request waterfall: initiate data requests at the same time
 in js: Promise.all() or Promise.allSettled()
+
+
+Cookies and URL search params can only be known at request time.
+static and dynamic behavior
