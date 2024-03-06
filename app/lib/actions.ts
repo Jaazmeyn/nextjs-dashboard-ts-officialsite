@@ -1,6 +1,10 @@
 'use server';// react directive -> marking all the exported functions within the file as server functions
 
 import { z } from 'zod'; // library to handle type validation
+import { sql } from '@vercel/postgres';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+
 
 // This schema will validate the formData before saving it to a database
 const FormSchema = z.object({
@@ -20,7 +24,19 @@ export async function createInvoice(formData: FormData) {
       amount: formData.get('amount'),
       status: formData.get('status'),
     });
-    // convert  amount into cent to eliminate JavaScript floating-point errors and ensure greater accuracy
+    // convert amount into cent to eliminate JavaScript floating-point errors and ensure greater accuracy
     const amountInCents = amount * 100;
     const date = new Date().toISOString().split('T')[0];
+
+    // Inserting data into database
+    await sql`
+    INSERT INTO invoices (customer_id, amount, status, date)
+    VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+  `;
+
+    // delete cache to display new data
+    revalidatePath('/dashboard/invoices'); 
+    
+    redirect('/dashboard/invoices');
+
   }

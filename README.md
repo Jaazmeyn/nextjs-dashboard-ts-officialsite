@@ -138,3 +138,5 @@ invoking a Server Action within a Server Component is **progressive enhancement*
  ``
  const rawFormData = Object.fromEntries(formData.entries())
 ``
+
+updating new data displayed in the invoices route, -> clear this cache(good for fast user navigation) and trigger a new request to the server. with the revalidatePath function from Next.js
