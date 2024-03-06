@@ -72,3 +72,14 @@ in js: Promise.all() or Promise.allSettled()
 
 Cookies and URL search params can only be known at request time.
 static and dynamic behavior
+
+
+### Streaming
+https://nextjs.org/learn/dashboard-app/streaming
+- experience
+- content priority
+- component rely on data fetching?
+
+wrapper component suspense to render individual components.
+use data fetches at the component where it's needed reduces dependency of other components to render.
+
