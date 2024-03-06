@@ -105,3 +105,14 @@ The URL is updated without reloading the page, thanks to Next.js's client-side n
 
 useSearchParams() hook vs. the searchParams prop
 When reading the params from the client, use the useSearchParams() to avoid go back to the server
+
+### Debouncing: 
+limits the rate at which a function can fire ->
+It prevents a new database query on every keystroke
+// only query database when user stopped typing
+npm i use-debounce (library)
+avoiding this:
+A
+AM
+AMY
+
