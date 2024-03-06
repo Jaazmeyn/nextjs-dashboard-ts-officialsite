@@ -86,3 +86,22 @@ use data fetches at the component where it's needed reduces dependency of other 
 
 Summary
 https://nextjs.org/learn/dashboard-app/partial-prerendering
+
+## Search and Pagination
+### URL search params
+https://nextjs.org/learn/dashboard-app/adding-search-and-pagination
+Search (URL search params) with Next.js client hooks
+- useSearchParams
+Web API **urlSearchparams**: manipulating the URL query parameters instead of using complex string literals
+- usePathname
+- useRouter
+
+Capture the user's input.
+Update the URL with the search params.
+Keep the URL in sync with the input field.
+Update the table to reflect the search query.
+
+The URL is updated without reloading the page, thanks to Next.js's client-side navigation
+
+useSearchParams() hook vs. the searchParams prop
+When reading the params from the client, use the useSearchParams() to avoid go back to the server
