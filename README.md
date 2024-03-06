@@ -126,3 +126,15 @@ https://nextjs.org/learn/dashboard-app/adding-search-and-pagination
 
 fetchInvoicesPages returns the total number of pages based on the search query
 
+## Mutating Data
+Server actions: security through techniques like POST requests, encrypted closures, strict input checks, error message hashing, and host restrictions
+invoking a Server Action within a Server Component is **progressive enhancement** - forms work even if JavaScript is disabled on the client
+
+'use server';// react directive -> marking all the exported functions within the file as server functions
+ These server functions can then be imported into Client and Server components, making them extremely versatile
+ form: Server Actions create a POST API endpoint
+ forms that have many fields use method with JavaScript's Object.fromEntries()
+ like:
+ ``
+ const rawFormData = Object.fromEntries(formData.entries())
+``
