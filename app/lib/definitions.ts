@@ -80,7 +80,7 @@ export type CustomerField = {
   name: string;
 };
 
-export type InvoiceForm = {
+export type InvoiceForm = { // invoices table expects data in the following format
   id: string;
   customer_id: string;
   amount: number;
