@@ -14,7 +14,7 @@ import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
   // Add noStore() here to prevent the response from being cached.
-  noStore();
+  noStore(); // NO STATIC RENDERING
 
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
@@ -132,7 +132,7 @@ export async function fetchFilteredInvoices(
 }
 
 export async function fetchInvoicesPages(query: string) {
-  noStore();
+  noStore(); // 
   try {
     const count = await sql`SELECT COUNT(*)
     FROM invoices

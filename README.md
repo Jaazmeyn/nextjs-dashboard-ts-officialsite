@@ -105,8 +105,12 @@ The URL is updated without reloading the page, thanks to Next.js's client-side n
 
 useSearchParams() hook vs. the searchParams prop
 When reading the params from the client, use the useSearchParams() to avoid go back to the server
+instead of working with client-side React using URL search params and lifting this state to the server
+- shareble & bookmarkable
+- Server-Side Rendering and Initial Load
+- Analytics and Tracking
 
-### Debouncing: 
+#### Debouncing: 
 limits the rate at which a function can fire ->
 It prevents a new database query on every keystroke
 // only query database when user stopped typing
@@ -115,4 +119,10 @@ avoiding this:
 A
 AM
 AMY
+
+### Pagination 
+fetchFilteredInvoices() returns 6
+https://nextjs.org/learn/dashboard-app/adding-search-and-pagination
+
+fetchInvoicesPages returns the total number of pages based on the search query
 
