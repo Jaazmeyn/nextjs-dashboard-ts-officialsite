@@ -83,3 +83,6 @@ https://nextjs.org/learn/dashboard-app/streaming
 wrapper component suspense to render individual components.
 use data fetches at the component where it's needed reduces dependency of other components to render.
 
+
+Summary
+https://nextjs.org/learn/dashboard-app/partial-prerendering
