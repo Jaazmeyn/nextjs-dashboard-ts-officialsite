@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import { useDebouncedCallback } from 'use-debounce';
 
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -21,7 +21,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query');
     }
-    
+
     // 2) ${pathname} => current path ("/dashboard/invoices")
     // params.toString() => translates to URL friendly format
     // replace :/dashboard/invoices?query=lee if the user searches for "Lee"

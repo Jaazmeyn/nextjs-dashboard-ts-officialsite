@@ -30,10 +30,16 @@ export async function createInvoice(formData: FormData) { // formData we got out
     const date = new Date().toISOString().split('T')[0];
 
     // Inserting data into database
-    await sql`
+    try {
+      await sql`
     INSERT INTO invoices (customer_id, amount, status, date)
     VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
+  } catch(error){
+   return {
+    message: 'Database Error: Failed to Create Invoice.'
+   }
+  }
 
     // delete cache to display new data (defaul is cashing data for quick navigation between routes)
     revalidatePath('/dashboard/invoices'); // new data reload
@@ -46,6 +52,7 @@ const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 
 export async function updateInvoice(id: string, formData: FormData) {
+  throw new Error('Failed to edit Invoice');
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -53,18 +60,35 @@ export async function updateInvoice(id: string, formData: FormData) {
   });
  
   const amountInCents = amount * 100;
+
+  try {
+    await sql`
+      UPDATE invoices
+      SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
+      WHERE id = ${id}
+    `;
+    revalidatePath('/dashboard/invoices');
+    redirect('/dashboard/invoices');
+  } catch(error){
+    return {
+      message: 'Database Error: Failed to Update Invoice.'
+    }
+  }
  
-  await sql`
-    UPDATE invoices
-    SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
-    WHERE id = ${id}
-  `;
- 
-  revalidatePath('/dashboard/invoices');
-  redirect('/dashboard/invoices');
+
 }
 
 export async function deleteInvoice(id: string) {
-  await sql`DELETE FROM invoices WHERE id = ${id}`;
-  revalidatePath('/dashboard/invoices'); // rerender after new serverrequest
+  throw new Error('Failed to Delete Invoice');
+  
+  try {
+    await sql`DELETE FROM invoices WHERE id = ${id}`;
+    revalidatePath('/dashboard/invoices');  // delete cache to display new data 
+    // inside the try because?
+    // no redirect because? & 
+  } catch(error){
+    return {
+      message: 'Database Error: Failed to Delete Invoice.'
+    }
+  }
 }
