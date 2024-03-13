@@ -172,3 +172,12 @@ Pre-populate the form with the invoice data
 Update the invoice data in your database
 
 ## Adding try/catch to Server Actions
+weirdly the error UI only appears at delete not on edit. by manually fire an error at front of the function.
+
+what means it is an other problem what the edit invoice function faces.
+
+#### Handling 404 errors with the notFound function
+ confirm that the resource hasn't been found
+
+https://nextjs.org/learn/dashboard-app/error-handling
+doesn't work, something is wrong with invoice edit

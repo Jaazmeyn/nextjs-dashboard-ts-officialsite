@@ -52,7 +52,7 @@ const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 
 export async function updateInvoice(id: string, formData: FormData) {
-  throw new Error('Failed to edit Invoice');
+  // throw new Error('Failed to edit Invoice');
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
