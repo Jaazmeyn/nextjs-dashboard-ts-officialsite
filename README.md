@@ -1,6 +1,11 @@
-## Next.js App Router Course - Starter
+## Next.js 
+Next.js is an open-source web development framework by Vercel.
+Providing React-based web applications with server-side rendering and static website generation. 
+Trusted by data-heavy streaming sites
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+SSR: Serverside rendering (SEO opt, fast initial rendering, static content like blog) - static
+vs 
+CSR: clientside rendering (interactive) - dynamic
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
@@ -12,7 +17,7 @@ bug: delete node modules and jsonlockfile and npm cache clean --force
 then npm install
 npm run dev  
 
-## styling
+### styling
 https://nextjs.org/learn/dashboard-app/css-styling
 Tailwind and CSS modules
 
@@ -75,6 +80,8 @@ static and dynamic behavior
 
 
 ### Streaming
+
+
 https://nextjs.org/learn/dashboard-app/streaming
 - experience
 - content priority
@@ -127,16 +134,39 @@ https://nextjs.org/learn/dashboard-app/adding-search-and-pagination
 fetchInvoicesPages returns the total number of pages based on the search query
 
 ## Mutating Data
-Server actions: security through techniques like POST requests, encrypted closures, strict input checks, error message hashing, and host restrictions
-invoking a Server Action within a Server Component is **progressive enhancement** - forms work even if JavaScript is disabled on the client
+### Server actions 
+eliminate the need to create API to mutate data.
 
-'use server';// react directive -> marking all the exported functions within the file as server functions
- These server functions can then be imported into Client and Server components, making them extremely versatile
- form: Server Actions create a POST API endpoint
- forms that have many fields use method with JavaScript's Object.fromEntries()
- like:
- ``
+**security** through techniques like POST requests, encrypted closures, strict input checks, error message hashing, and host restrictions
+
+invoking a Server Action within a Server Component is **progressive enhancement** - forms work even if JavaScript is disabled on the client
+``
+'use server';
+``
+react directive -> marking all the exported functions within the file as server functions, which can then be imported into Client and Server components, making them extremely versatile
+integrated with next.js **cashing** where you can also revalidate the associated cache using APIs like revalidatePath and revalidateTag.
+
+behind the scenes of <form action={}> Server Actions create a POST API endpoint, thats why you don't need to create API manually
+
+extract the data from the 
+``
+formData object
+``
+
+forms that have many fields use method with JavaScript's Object.fromEntries()
+like:
+``
  const rawFormData = Object.fromEntries(formData.entries())
 ``
 
-updating new data displayed in the invoices route, -> clear this cache(good for fast user navigation) and trigger a new request to the server. with the revalidatePath function from Next.js
+updating new data -> clear cache (good for fast user navigation) and trigger a new request to the server. with the revalidatePath function from Next.js
+
+Breadcrumbs: React component provides a breadcrumb navigation bar. It helps users navigate back to the list of invoices or other relevant pages.
+
+
+you'll need to pass the invoice id to update the record in your database
+dynamic route segment
+invoice id from the page params
+Fetch the specific invoice from your database
+Pre-populate the form with the invoice data
+Update the invoice data in your database
