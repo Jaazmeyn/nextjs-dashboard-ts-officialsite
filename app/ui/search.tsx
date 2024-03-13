@@ -9,8 +9,8 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = useDebouncedCallback((term:string) =>  {   // 1. users input
-    console.log(`Searching... ${term}`);  // 1. users input
+  const handleSearch = useDebouncedCallback((term) =>  {   // 1. users input
+    //console.log(`Searching... ${term}`);  // 1. users input
 
     const params = new URLSearchParams(searchParams); // 2. Update the URL with search params
     // 2) params string based on the user’s input, delete if input is empty 
@@ -21,6 +21,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     } else {
       params.delete('query');
     }
+    
     // 2) ${pathname} => current path ("/dashboard/invoices")
     // params.toString() => translates to URL friendly format
     // replace :/dashboard/invoices?query=lee if the user searches for "Lee"
