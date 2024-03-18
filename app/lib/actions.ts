@@ -32,20 +32,18 @@ export async function createInvoice(formData: FormData) { // formData we got out
     // Inserting data into database
     try {
       await sql`
-    INSERT INTO invoices (customer_id, amount, status, date)
-    VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-  `;
+        INSERT INTO invoices (customer_id, amount, status, date)
+        VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+      `;
   } catch(error){
    return {
     message: 'Database Error: Failed to Create Invoice.'
    }
   }
-
     // delete cache to display new data (defaul is cashing data for quick navigation between routes)
     revalidatePath('/dashboard/invoices'); // new data reload
     //  on form submission redirected
     redirect('/dashboard/invoices');
-
 }
 
 const UpdateInvoice = FormSchema.omit({ id: true, date: true });
@@ -53,6 +51,7 @@ const UpdateInvoice = FormSchema.omit({ id: true, date: true });
 
 export async function updateInvoice(id: string, formData: FormData) {
   // throw new Error('Failed to edit Invoice');
+
   const { customerId, amount, status } = UpdateInvoice.parse({
     customerId: formData.get('customerId'),
     amount: formData.get('amount'),
@@ -67,14 +66,14 @@ export async function updateInvoice(id: string, formData: FormData) {
       SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
       WHERE id = ${id}
     `;
-    revalidatePath('/dashboard/invoices');
-    redirect('/dashboard/invoices');
+
   } catch(error){
     return {
       message: 'Database Error: Failed to Update Invoice.'
     }
   }
- 
+  revalidatePath('/dashboard/invoices');
+  redirect('/dashboard/invoices');
 
 }
 
@@ -86,9 +85,9 @@ export async function deleteInvoice(id: string) {
     revalidatePath('/dashboard/invoices');  // delete cache to display new data 
     // inside the try because?
     // no redirect because? & 
+    return {message: 'Deleted Invoice'}
+
   } catch(error){
-    return {
-      message: 'Database Error: Failed to Delete Invoice.'
-    }
+      return {message: 'Database Error: Failed to Delete Invoice.'}
   }
 }
